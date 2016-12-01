@@ -1,10 +1,18 @@
 package com.labii;
 
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Random;
@@ -27,21 +35,22 @@ public class UsuarioController {
     }
 
     //Alta
-    @RequestMapping(value = "/users/add", method = RequestMethod.POST)
-    public void add(@RequestBody() Usuario input){
+    @RequestMapping(value = "/usuarios/alta", method = RequestMethod.POST)
+    public void add(@RequestBody Usuario input){
         UsuarioSource.altaUsuario(input.getNombre(), input.getEmail());
     }
 
     @RequestMapping(value = "/usuarios/{idUsuario}/baja", method = RequestMethod.DELETE)
-    public void bajaUsuario(@PathVariable(value = "id") Integer idUsuario){
+    public void bajaUsuario(@PathVariable(value = "idUsuario") Integer idUsuario){
         UsuarioSource.bajaUsuario(idUsuario);
     }
 
-    @RequestMapping(value = "/usuarios/{idUsuario}/ModifUsuario", method = RequestMethod.PUT)
+    @RequestMapping(value = "/usuarios/{idUsuario}/modificar", method = RequestMethod.PUT)
     public void modifUsuario(@PathVariable(value = "idUsuario") Integer idUsuario, @RequestBody Usuario usuario){
         UsuarioSource.modifUsuario(idUsuario, usuario.getEmail());
     }
 
+    /*
     @RequestMapping(value = "/usuarios/filtro", method = RequestMethod.GET)
     public Collection<Usuario> getPorEmail(@RequestParam(value = "email", defaultValue = "all") String email){
         if (email.equals("all")){
@@ -57,7 +66,6 @@ public class UsuarioController {
             return result;
         }
     }
-
-
+    */
 
 }
