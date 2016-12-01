@@ -13,56 +13,63 @@ public class EventoSource {
 
     static {
 
-        Evento evento1 = new Evento(contador.incrementAndGet(), "limpiar" ,1);
-        Evento evento2 = new Evento(contador.incrementAndGet(), "Estudiar",1);
-        Evento evento3 = new Evento(contador.incrementAndGet(), "trabajar",2);
+        Evento evento1 = new Evento(contador.incrementAndGet(), "limpiar" ,1, "Tengo que limpiar mi Pieza");
+        Evento evento2 = new Evento(contador.incrementAndGet(), "Estudiar",1, "Tengo que estudiar para Lab");
+        Evento evento3 = new Evento(contador.incrementAndGet(), "trabajar",2, "Tengo que terminar mi desarrollo de la Api");
 
-        listaEventos.put(evento1.getId(), evento1);
-        listaEventos.put(evento2.getId(), evento2);
-        listaEventos.put(evento3.getId(), evento3);
+        listaEventos.put(evento1.getIdEvento(), evento1);
+        listaEventos.put(evento2.getIdEvento(), evento2);
+        listaEventos.put(evento3.getIdEvento(), evento3);
 
     }
-/*
+
     public static Collection<Evento> getListaEventos() {
-
         return listaEventos.values();
-
     }
-*/
 
-    public static Map<Integer, Evento> getListaEventos() {
-        return listaEventos;
+    public static Evento getEventos(Integer idEventos) {
+        return listaEventos.get(idEventos);
     }
 
     public static Collection<Evento> listaEventosPorID(Integer idCalendario){
 
         HashMap<Integer, Evento> resul = new HashMap<Integer, Evento>();
 
-        //System.out.println(listaEventos.values());
-
         for (Evento list : listaEventos.values()){
 
             if (list.getCalendario().getId() == idCalendario){
-                resul.put(list.getId(), list);
+                resul.put(list.getIdEvento(), list);
             }
         }
 
         return resul.values();
     }
 
+    //  ALTA
+    public static void altaEvento(String nombre, Integer idCalendario, String descripcion){
 
+        Evento evento = new Evento(contador.incrementAndGet(), nombre, idCalendario, descripcion);
+        listaEventos.put(evento.getIdEvento(), evento);
 
-    //Iterator it = listaEventos.keySet().iterator();
+    }
 
-        /*
-        System.out.println(listaEventos.get(1));
+    // BAJA
+    public static void bajaEvento(int idEvento){
 
-        while(it.hasNext()){
+        listaEventos.remove(idEvento);
 
-            if (listaEventos.get(it.next()).getCalendario().equals(idCalendario)){
+    }
 
-                resul.put(contador.incrementAndGet(), listaEventos.get(it.next()));
-            }
-        }
-        */
+    //  MODIFICACION
+    public static void modifEvento(int idEvento, String nombre, String descripcion){
+
+        if (listaEventos.get(idEvento) != null) {
+
+            if (listaEventos.get(idEvento) != null) listaEventos.get(idEvento).setNombre(nombre);
+            if (listaEventos.get(idEvento) != null) listaEventos.get(idEvento).setDescripcion(descripcion);
+
+        }else throw new CustomExceptionUsuario("Evento no encontrado");
+
+    }
+
 }

@@ -1,9 +1,6 @@
 package com.labii;
 
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
@@ -11,21 +8,32 @@ import java.util.Collection;
  * Created by umantram on 28/11/16.
  */
 @RestController
-@RequestMapping(value = "/evento")
-
 public class EventoController {
 
-        @RequestMapping(value = "/")
-        public Collection getEmployeeNames() {
-            return (Collection) EventoSource.getListaEventos();
-
-        }
-
-        @RequestMapping(value = "/{userId}")
-        Collection readBookmarks(@PathVariable Integer userId) {
-            return EventoSource.listaEventosPorID(userId);
-        }
-
-
-
+    @RequestMapping(value = "/evento", method = RequestMethod.GET)
+    public Collection<Evento> getEvento(){
+        return EventoSource.getListaEventos();
     }
+
+    @RequestMapping(value = "/evento/{idEvento}", method = RequestMethod.GET)
+    public Evento getEventoPorID(@PathVariable("idEvento") Integer idEvento){
+        return EventoSource.getEventos(idEvento) ;
+    }
+
+    //Alta
+    @RequestMapping(value = "/evento/alta", method = RequestMethod.POST)
+    public void altaEvento(@RequestBody Evento input){
+        UsuarioSource.altaUsuario(input.getNombre(), input.getDescripcion());
+    }
+
+    @RequestMapping(value = "/evento/{idEvento}/baja", method = RequestMethod.DELETE)
+    public void bajaEvento(@PathVariable(value = "idEvento") Integer idEvento){
+        UsuarioSource.bajaUsuario(idEvento);
+    }
+
+    @RequestMapping(value = "/evento/{idEvento}/modificar", method = RequestMethod.PUT)
+    public void modificarEvento(@PathVariable(value = "idEvento") Integer idEvento, @RequestBody Usuario usuario){
+        UsuarioSource.modifUsuario(idEvento, usuario.getEmail());
+    }
+
+}

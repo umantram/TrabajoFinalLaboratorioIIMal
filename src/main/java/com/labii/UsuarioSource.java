@@ -11,12 +11,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class UsuarioSource {
 
     private static final Map<Integer, Usuario> listusuarios = new HashMap<Integer, Usuario>();
-    private static final AtomicInteger count = new AtomicInteger(0);
+    private static final AtomicInteger contador = new AtomicInteger(0);
 
     static  {
 
-        Usuario usuario1 = new Usuario(count.incrementAndGet(), "Andres", "umantram");
-        Usuario usuario2 = new Usuario(count.incrementAndGet(), "Arcangel", "artigues");
+        Usuario usuario1 = new Usuario(contador.incrementAndGet(), "Andres", "umantram");
+        Usuario usuario2 = new Usuario(contador.incrementAndGet(), "Arcangel", "artigues");
 
         listusuarios.put(usuario1.getIdUsuario(), usuario1);
         listusuarios.put(usuario2.getIdUsuario(), usuario2);
@@ -42,8 +42,7 @@ public class UsuarioSource {
     //  ALTA
     public static void altaUsuario(String nombre, String email){
 
-        Usuario aux = new Usuario(count.incrementAndGet(), nombre, email);
-
+        Usuario aux = new Usuario(contador.incrementAndGet(), nombre, email);
         listusuarios.put(aux.getIdUsuario(), aux);
 
     }

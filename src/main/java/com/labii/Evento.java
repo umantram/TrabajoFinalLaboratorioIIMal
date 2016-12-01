@@ -5,19 +5,25 @@ package com.labii;
  */
 public class Evento {
 
-    private int id;
+    private int idEvento;
     private String nombre;
     private Calendario calendario;
+    private String descripcion;
 
-    public Evento(int id, String nombre, int idCalendario) {
-        this.id = id;
+    public Evento(int idEvento, String nombre, int idCalendario, String descripcion) {
+        this.idEvento = idEvento;
         this.nombre = nombre;
+        this.descripcion = descripcion;
         this.calendario = CalendarioSource.getCalendario(idCalendario);
         //System.out.println(this.calendario.getNombre());
     }
 
-    public int getId() {
-        return id;
+    public Evento(){
+
+    }
+
+    public int getIdEvento() {
+        return idEvento;
     }
 
     public String getNombre() {
@@ -26,5 +32,17 @@ public class Evento {
 
     public Calendario getCalendario() {
         return calendario;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }
