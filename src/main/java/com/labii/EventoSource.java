@@ -46,7 +46,7 @@ public class EventoSource {
     }
 
     //  ALTA
-    public static void altaEvento(String nombre, Integer idCalendario, String descripcion){
+    public static void altaEvento(String nombre, String descripcion, Integer idCalendario){
 
         Evento evento = new Evento(contador.incrementAndGet(), nombre, idCalendario, descripcion);
         listaEventos.put(evento.getIdEvento(), evento);
@@ -61,7 +61,7 @@ public class EventoSource {
     }
 
     //  MODIFICACION
-    public static void modifEvento(int idEvento, String nombre, String descripcion){
+    public static void modificarEvento(int idEvento, String nombre, String descripcion){
 
         if (listaEventos.get(idEvento) != null) {
 

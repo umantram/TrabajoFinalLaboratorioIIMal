@@ -23,17 +23,19 @@ public class EventoController {
     //Alta
     @RequestMapping(value = "/evento/alta", method = RequestMethod.POST)
     public void altaEvento(@RequestBody Evento input){
-        UsuarioSource.altaUsuario(input.getNombre(), input.getDescripcion());
+        EventoSource.altaEvento(input.getNombre(), input.getDescripcion(), input.getIdCalendario());
     }
 
+    //Baja
     @RequestMapping(value = "/evento/{idEvento}/baja", method = RequestMethod.DELETE)
     public void bajaEvento(@PathVariable(value = "idEvento") Integer idEvento){
-        UsuarioSource.bajaUsuario(idEvento);
+        EventoSource.bajaEvento(idEvento);
     }
 
+    //Modificar
     @RequestMapping(value = "/evento/{idEvento}/modificar", method = RequestMethod.PUT)
-    public void modificarEvento(@PathVariable(value = "idEvento") Integer idEvento, @RequestBody Usuario usuario){
-        UsuarioSource.modifUsuario(idEvento, usuario.getEmail());
+    public void modificarEvento(@PathVariable(value = "idEvento") Integer idEvento, @RequestBody Evento evento){
+        EventoSource.modificarEvento(idEvento, evento.getNombre(), evento.getDescripcion());
     }
 
 }

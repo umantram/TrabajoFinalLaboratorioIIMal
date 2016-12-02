@@ -13,6 +13,7 @@ public class Calendario {
     private Integer idCalendario = 0;
     private String nombre;
     private Usuario usuario;
+    private Integer idUsuario;
 
     //private ArrayList<Evento> eventos = new ArrayList<Evento>();
     private Map<Integer, Evento> eventos  = new HashMap<Integer, Evento>();
@@ -23,10 +24,15 @@ public class Calendario {
         this.nombre = nombre;
         this.usuario = UsuarioSource.getUsuario(idUsuario);
 
-        this.eventos.putAll(EventoSource.getListaEventos());
+        //this.eventos.putAll(EventoSource.getListaEventos());
     }
 
-    public Integer getId() {
+    public Calendario(){
+
+    }
+
+
+    public Integer getidCalendario() {
         return idCalendario;
     }
 
@@ -40,5 +46,13 @@ public class Calendario {
 
     public Map<Integer, Evento> getEventos() {
         return eventos;
+    }
+
+    public Integer getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 }

@@ -19,8 +19,8 @@ public class CalendarioSource {
         Calendario calen1 = new Calendario(contador.incrementAndGet(), "oficina", 1);
         Calendario calen2 = new Calendario(contador.incrementAndGet(), "Casa", 2);
 
-        listaCalendarios.put(calen1.getId(), calen1);
-        listaCalendarios.put(calen2.getId(), calen2);
+        listaCalendarios.put(calen1.getidCalendario(), calen1);
+        listaCalendarios.put(calen2.getidCalendario(), calen2);
 
     };
 
@@ -34,5 +34,32 @@ public class CalendarioSource {
         return listaCalendarios.get(idCalendario);
 
     }
+
+    //  ALTA
+    public static void altaCalendario(String nombre, Integer idUsuario){
+
+        Calendario calendario = new Calendario(contador.incrementAndGet(), nombre, idUsuario);
+        listaCalendarios.put(calendario.getidCalendario(), calendario);
+
+    }
+
+    // BAJA
+    public static void bajaCalendario(int idCalendario){
+
+        listaCalendarios.remove(idCalendario);
+
+    }
+
+    //  MODIFICACION
+    public static void modificarCalendario(int idCalendario, String nombre){
+
+        if (listaCalendarios.get(idCalendario) != null) {
+
+            if (listaCalendarios.get(idCalendario) != null) listaCalendarios.get(idCalendario).setNombre(nombre);
+
+        }else throw new CustomExceptionUsuario("Calendario no encontrado");
+
+    }
+
 
 }
