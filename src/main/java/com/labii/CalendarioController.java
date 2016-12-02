@@ -17,7 +17,7 @@ import java.util.Collection;
     }
 
     @RequestMapping(value = "/calendario/{idCalendario}", method = RequestMethod.GET)
-    public Calendario getCalendarioPorID(@PathVariable("idalendario") Integer idCalendario){
+    public Calendario getCalendarioPorID(@PathVariable("idCalendario") Integer idCalendario){
         return CalendarioSource.getCalendario(idCalendario) ;
     }
 

@@ -9,13 +9,21 @@ public class Evento {
     private String nombre;
     private Calendario calendario;
     private String descripcion;
+    private Fecha fechaInicio;
+    private Fecha fechaFin;
+    private String color;
     private int idCalendario;
 
-    public Evento(int idEvento, String nombre, int idCalendario, String descripcion) {
+    public Evento(int idEvento, String nombre, int idCalendario, String descripcion, Fecha fechaInicio, Fecha fechaFin, String color) {
         this.idEvento = idEvento;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.calendario = CalendarioSource.getCalendario(idCalendario);
+
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.color = color;
+
         //System.out.println(this.calendario.getNombre());
     }
 

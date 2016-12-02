@@ -24,12 +24,11 @@ public class CalendarioSource {
 
     };
 
-
     public static Collection<Calendario> getListaCalendarios() {
         return listaCalendarios.values();
     }
 
-    public static Calendario getCalendario(int idCalendario){
+    public static Calendario getCalendario(Integer idCalendario){
 
         return listaCalendarios.get(idCalendario);
 

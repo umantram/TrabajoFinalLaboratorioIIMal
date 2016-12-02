@@ -13,9 +13,12 @@ public class EventoSource {
 
     static {
 
-        Evento evento1 = new Evento(contador.incrementAndGet(), "limpiar" ,1, "Tengo que limpiar mi Pieza");
-        Evento evento2 = new Evento(contador.incrementAndGet(), "Estudiar",1, "Tengo que estudiar para Lab");
-        Evento evento3 = new Evento(contador.incrementAndGet(), "trabajar",2, "Tengo que terminar mi desarrollo de la Api");
+        Evento evento1 = new Evento(contador.incrementAndGet(), "limpiar" ,1, "Tengo que limpiar mi Pieza",
+                         new Fecha(10,01,2016,20,30), new Fecha(10,01,2016,21,30), "Rojo");
+        Evento evento2 = new Evento(contador.incrementAndGet(), "Estudiar",1, "Tengo que estudiar para Lab",
+                         new Fecha(15,01,2016,15,30), new Fecha(15,01,2016,16,30), "Verde");
+        Evento evento3 = new Evento(contador.incrementAndGet(), "trabajar",2, "Tengo que terminar mi desarrollo de la Api",
+                         new Fecha(9,1,2016,3,30), new Fecha(9,1,2016,4,30), "Azul");
 
         listaEventos.put(evento1.getIdEvento(), evento1);
         listaEventos.put(evento2.getIdEvento(), evento2);
@@ -31,6 +34,7 @@ public class EventoSource {
         return listaEventos.get(idEventos);
     }
 
+    /*
     public static Collection<Evento> listaEventosPorID(Integer idCalendario){
 
         HashMap<Integer, Evento> resul = new HashMap<Integer, Evento>();
@@ -44,11 +48,13 @@ public class EventoSource {
 
         return resul.values();
     }
+    */
 
     //  ALTA
-    public static void altaEvento(String nombre, String descripcion, Integer idCalendario){
+    public static void altaEvento(String nombre, String descripcion, Integer idCalendario, int dia, int mes, int anio, int hora, int minuto, String color){
 
-        Evento evento = new Evento(contador.incrementAndGet(), nombre, idCalendario, descripcion);
+        Evento evento = new Evento(contador.incrementAndGet(), nombre, idCalendario, descripcion,
+                        new Fecha(dia,mes,anio,hora,minuto), new Fecha(dia,mes,anio,hora,minuto), color);
         listaEventos.put(evento.getIdEvento(), evento);
 
     }

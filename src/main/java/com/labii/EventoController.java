@@ -22,8 +22,8 @@ public class EventoController {
 
     //Alta
     @RequestMapping(value = "/evento/alta", method = RequestMethod.POST)
-    public void altaEvento(@RequestBody Evento input){
-        EventoSource.altaEvento(input.getNombre(), input.getDescripcion(), input.getIdCalendario());
+    public void altaEvento(@RequestBody Evento input, int dia, int mes, int anio, int hora, int minuto, String color){
+        EventoSource.altaEvento(input.getNombre(), input.getDescripcion(), input.getIdCalendario(), dia,mes,anio,hora,minuto, color);
     }
 
     //Baja

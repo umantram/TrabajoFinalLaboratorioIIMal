@@ -27,12 +27,29 @@ public class UsuarioController {
         return UsuarioSource.getUsuario(idUsuario);
     }
 
+    //Alta Calendario con un Usuario
+    @RequestMapping(value = "/usuarios/{idUsuario}/altaCalendario", method = RequestMethod.POST)
+    public void altaCalendarioUsaurio(@PathVariable("idUsuario") int idUsuario, @RequestBody Calendario calendario){
+
+        CalendarioSource.altaCalendario(calendario.getNombre(), idUsuario);
+
+    }
+
+    //Alta Eventos de Calendario con un Usuario
+    @RequestMapping(value = "/usuarios/{idUsuario}/{idCalendario}/altaEvento", method = RequestMethod.POST)
+    public void altaEventoCalendarioUsuario(@PathVariable("idCalendario") int idCalendario, @RequestBody Evento evento,
+                                            int dia, int mes, int anio, int hora, int minuto, String color){
+
+        EventoSource.altaEvento(evento.getNombre(), evento.getDescripcion(), evento.getIdCalendario(), dia,mes,anio,hora,minuto, color);
+
+    }
+
     //Alta
     @RequestMapping(value = "/usuarios/alta", method = RequestMethod.POST)
-    public HttpStatus add(@RequestBody Usuario input){
+    public void altaUsuario(@RequestBody Usuario input){
 
         UsuarioSource.altaUsuario(input.getNombre(), input.getEmail());
-        return HttpStatus.OK;
+        //return HttpStatus.OK;
 
     }
 
