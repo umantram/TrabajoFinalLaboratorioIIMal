@@ -7,18 +7,18 @@ public class Evento {
 
     private int idEvento;
     private String nombre;
-    private Calendario calendario;
     private String descripcion;
     private Fecha fechaInicio;
     private Fecha fechaFin;
     private String color;
     private int idCalendario;
+    private Calendario calendario;
 
-    public Evento(int idEvento, String nombre, int idCalendario, String descripcion, Fecha fechaInicio, Fecha fechaFin, String color) {
+    public Evento(int idEvento, String nombre,  String descripcion, String color, Fecha fechaInicio, Fecha fechaFin, int idCalendario) {
         this.idEvento = idEvento;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.calendario = CalendarioSource.getCalendario(idCalendario);
+        this.calendario = CalendarioManejoDatos.getCalendario(idCalendario);
 
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
@@ -59,4 +59,15 @@ public class Evento {
         this.descripcion = descripcion;
     }
 
+    public String getColor() {
+        return color;
+    }
+
+    public Fecha getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public Fecha getFechaFin() {
+        return fechaFin;
+    }
 }

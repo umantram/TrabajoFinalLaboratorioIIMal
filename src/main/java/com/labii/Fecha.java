@@ -58,7 +58,7 @@ public class Fecha {
         if (dia > 0 && dia < 31) {
             this.dia = dia;
         }else {
-            throw new IllegalArgumentException("Dia Invalido");
+            throw new IllegalArgumentException("Dia Invalido" + dia);
         }
 
         if (mes > 0 && mes < 12) {
@@ -86,6 +86,9 @@ public class Fecha {
         }
     }
 
+    public Fecha(){
+
+    }
     @Override
     public String toString() {
 

@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * Created by umantram on 27/11/16.
  */
-public class CalendarioSource {
+public class CalendarioManejoDatos {
 
     private static final Map<Integer, Calendario> listaCalendarios  = new HashMap<Integer, Calendario>();
     private static final  AtomicInteger contador = new AtomicInteger(0);
@@ -17,10 +17,10 @@ public class CalendarioSource {
     static {
 
         Calendario calen1 = new Calendario(contador.incrementAndGet(), "oficina", 1);
-        Calendario calen2 = new Calendario(contador.incrementAndGet(), "Casa", 2);
+        //Calendario calen2 = new Calendario(contador.incrementAndGet(), "Casa", 2);
 
         listaCalendarios.put(calen1.getidCalendario(), calen1);
-        listaCalendarios.put(calen2.getidCalendario(), calen2);
+        //listaCalendarios.put(calen2.getidCalendario(), calen2);
 
     };
 

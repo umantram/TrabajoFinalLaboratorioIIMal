@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * Created by umantram on 27/11/16.
  */
-public class UsuarioSource {
+public class UsuarioManejoDatos {
 
     private static final Map<Integer, Usuario> listusuarios = new HashMap<Integer, Usuario>();
     private static final AtomicInteger contador = new AtomicInteger(0);
@@ -16,10 +16,10 @@ public class UsuarioSource {
     static  {
 
         Usuario usuario1 = new Usuario(contador.incrementAndGet(), "Andres", "umantram");
-        Usuario usuario2 = new Usuario(contador.incrementAndGet(), "Arcangel", "artigues");
+        //Usuario usuario2 = new Usuario(contador.incrementAndGet(), "Gran", "artigues");
 
         listusuarios.put(usuario1.getIdUsuario(), usuario1);
-        listusuarios.put(usuario2.getIdUsuario(), usuario2);
+        //listusuarios.put(usuario2.getIdUsuario(), usuario2);
 
     }
 

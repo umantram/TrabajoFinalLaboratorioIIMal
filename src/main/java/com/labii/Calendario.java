@@ -1,10 +1,5 @@
 package com.labii;
 
-import java.security.PublicKey;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * Created by umantram on 27/11/16.
  */
@@ -16,15 +11,15 @@ public class Calendario {
     private Integer idUsuario;
 
     //private ArrayList<Evento> eventos = new ArrayList<Evento>();
-    private Map<Integer, Evento> eventos  = new HashMap<Integer, Evento>();
+    //private Map<Integer, Evento> eventos  = new HashMap<Integer, Evento>();
 
     public Calendario(int idCalendario, String nombre, int idUsuario) {
 
         this.idCalendario = idCalendario;
         this.nombre = nombre;
-        this.usuario = UsuarioSource.getUsuario(idUsuario);
+        this.usuario = UsuarioManejoDatos.getUsuario(idUsuario);
 
-        //this.eventos.putAll(EventoSource.getListaEventos());
+        //this.eventos.putAll(EventoManejoDatos.getListaEventos());
     }
 
     public Calendario(){
@@ -44,9 +39,11 @@ public class Calendario {
         return usuario;
     }
 
+    /*
     public Map<Integer, Evento> getEventos() {
         return eventos;
     }
+    */
 
     public Integer getIdUsuario() {
         return idUsuario;
