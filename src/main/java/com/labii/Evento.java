@@ -1,8 +1,9 @@
 package com.labii;
 
 /**
- * Created by umantram on 27/11/16.
+ * Created by francomoglia on 11/28/16.
  */
+
 public class Evento {
 
     private int idEvento;
@@ -19,7 +20,7 @@ public class Evento {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.calendario = CalendarioManejoDatos.getCalendario(idCalendario);
-
+        this.idCalendario = idCalendario;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.color = color;

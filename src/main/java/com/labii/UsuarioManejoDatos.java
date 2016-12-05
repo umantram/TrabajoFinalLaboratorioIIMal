@@ -6,8 +6,9 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * Created by umantram on 27/11/16.
+ * Created by francomoglia on 11/28/16.
  */
+
 public class UsuarioManejoDatos {
 
     private static final Map<Integer, Usuario> listusuarios = new HashMap<Integer, Usuario>();
@@ -63,4 +64,3 @@ public class UsuarioManejoDatos {
 
     }
 }
-

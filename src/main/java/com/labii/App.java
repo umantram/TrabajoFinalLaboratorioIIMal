@@ -2,21 +2,13 @@ package com.labii;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
-
-/**
- * Hello world!
- *
- */
-
 /*
 #
-Muchos desarrolladores de Spring Boot siempre tienen su clase principal anotada con
+        Muchos desarrolladores de Spring Boot siempre tienen su clase principal anotada con
 @Configuration, @EnableAutoConfiguration y @ComponentScan.
-Dado que estas anotaciones son tan frecuentemente usadas juntas (especialmente si sigue las mejores prácticas anteriores),
-Spring Boot proporciona una alternativa conveniente @SpringBootApplication.
-#
- */
+        Dado que estas anotaciones son tan frecuentemente usadas juntas (especialmente si sigue las mejores prácticas anteriores),
+        Spring Boot proporciona una alternativa conveniente @SpringBootApplication.
+#*/
 @SpringBootApplication
 public class App
 {

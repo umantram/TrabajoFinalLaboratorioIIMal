@@ -1,5 +1,6 @@
 package com.labii;
 
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -7,8 +8,9 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * Created by umantram on 27/11/16.
+ * Created by francomoglia on 11/28/16.
  */
+
 public class EventoManejoDatos {
 
     private static final Map<Integer, Evento> listaEventos = new HashMap<Integer, Evento>();
@@ -17,7 +19,7 @@ public class EventoManejoDatos {
     static {
 
         Evento evento1 = new Evento(contador.incrementAndGet(), "limpiar" , "Tengo que limpiar mi Pieza", "Rojo",
-                         new Fecha(10,01,2016,20,30), new Fecha(10,01,2016,21,30),1);
+                new Fecha(10,01,2016,20,30), new Fecha(10,01,2016,21,30),1);
         //Evento evento2 = new Evento(contador.incrementAndGet(), "Estudiar", "Tengo que estudiar para Lab", "Verde",
         //                 new Fecha(15,01,2016,15,30), new Fecha(15,01,2016,16,30), 1);
 
@@ -67,16 +69,16 @@ public class EventoManejoDatos {
 
             Date dateBusqueda = formatter.parse(fechaBusqueda);
 
-        for (Evento list : listaEventos.values()){
+            for (Evento list : listaEventos.values()){
 
-            dateInStringClase = list.getFechaInicio().getDia() +"/"+ list.getFechaInicio().getMes() +"/"+ list.getFechaInicio().getAnio();
-            dateClase = formatter.parse(dateInStringClase);
+                dateInStringClase = list.getFechaInicio().getDia() +"/"+ list.getFechaInicio().getMes() +"/"+ list.getFechaInicio().getAnio();
+                dateClase = formatter.parse(dateInStringClase);
 
-            if (dateBusqueda.equals(dateClase) ){
-                resul.put(list.getIdEvento(), list);
+                if (dateBusqueda.equals(dateClase) ){
+                    resul.put(list.getIdEvento(), list);
+                }
+
             }
-
-        }
 
         } catch (ParseException e) {
             e.printStackTrace();
@@ -128,8 +130,8 @@ public class EventoManejoDatos {
                                   Integer idCalendario){
 
         Evento evento = new Evento(contador.incrementAndGet(), nombre, descripcion, color,
-                        new Fecha(diaInicio,mesInicio,anioInicio,horaInicio,minutoInicio),
-                        new Fecha(diaFin,mesFin,anioFin,horaFin,minutoFin), idCalendario);
+                new Fecha(diaInicio,mesInicio,anioInicio,horaInicio,minutoInicio),
+                new Fecha(diaFin,mesFin,anioFin,horaFin,minutoFin), idCalendario);
 
         listaEventos.put(evento.getIdEvento(), evento);
 

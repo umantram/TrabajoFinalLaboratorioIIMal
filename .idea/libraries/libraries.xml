@@ -1,0 +1,30 @@
+<component name="libraryTable">
+  <library name="libraries">
+    <ANNOTATIONS>
+      <root url="file://$USER_HOME$/.m2" />
+      <root url="file://$USER_HOME$/.IdeaIC2016.3" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="file://$USER_HOME$/.m2" />
+      <root url="file://$USER_HOME$/.IdeaIC2016.3" />
+      <root url="file://$USER_HOME$/.IdeaIC2016.3" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="file://$USER_HOME$/.m2" />
+      <root url="file://$USER_HOME$/.IdeaIC2016.3" />
+    </JAVADOC>
+    <NATIVE>
+      <root url="file://$USER_HOME$/.m2" />
+      <root url="file://$USER_HOME$/.IdeaIC2016.3" />
+    </NATIVE>
+    <SOURCES>
+      <root url="file://$USER_HOME$/.m2" />
+      <root url="file://$USER_HOME$/.IdeaIC2016.3" />
+      <root url="file://$USER_HOME$/.IdeaIC2016.3" />
+    </SOURCES>
+    <jarDirectory url="file://$USER_HOME$/.IdeaIC2016.3" recursive="false" />
+    <jarDirectory url="file://$USER_HOME$/.m2" recursive="false" />
+    <jarDirectory url="file://$USER_HOME$/.IdeaIC2016.3" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$USER_HOME$/.m2" recursive="false" type="SOURCES" />
+  </library>
+</component>

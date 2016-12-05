@@ -1,11 +1,7 @@
 package com.labii;
 
 import junit.framework.TestCase;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by francomoglia on 12/3/16.

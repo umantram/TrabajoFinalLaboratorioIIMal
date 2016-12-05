@@ -1,27 +1,35 @@
 package com.labii;
 
 import junit.framework.TestCase;
+import org.junit.Test;
 
 /**
- * Created by umantram on 05/12/16.
+ * Created by francomoglia on 12/3/16.
  */
-public class CalendarioTest extends TestCase {
-    public void testGetidCalendario() throws Exception {
+public class CalendarioTest extends TestCase{
 
-    }
+    @Test
+    public void testCalendario(){
 
-    public void testGetNombre() throws Exception {
+        Usuario usuario1 = new Usuario(11, "juan", "juan@gmail.com");
+        Usuario usuario2 = new Usuario(12, "carlos", "carlos@gmail.com");
+        Usuario usuario3 = new Usuario(13, "roberto", "roberto@gmail.com");
 
-    }
-    public void testGetUsuario() throws Exception {
+        UsuarioManejoDatos.altaUsuario("juan", "juan@gmail.com");
+        UsuarioManejoDatos.altaUsuario("carlos", "carlos@gmail.com");
+        UsuarioManejoDatos.altaUsuario("roberto", "roberto@gmail.com");
 
-    }
 
-    public void testGetIdUsuario() throws Exception {
+        Calendario calendar1 = new Calendario(0, "MyCalendar", 0);
+        Calendario calendar2 = new Calendario(1, "calendario", 1);
+        Calendario calendar3 = new Calendario(22, "algo", 1);
 
-    }
 
-    public void testSetNombre() throws Exception {
+        /*
+        *   TEST DEL METODO getIdCalendario()
+        * */
+        assertEquals(calendar1.getidCalendario(), new Integer(0));
+
 
     }
 

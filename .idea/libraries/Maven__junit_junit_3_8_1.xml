@@ -1,15 +1,29 @@
 <component name="libraryTable">
   <library name="Maven: junit:junit:3.8.1">
+    <ANNOTATIONS>
+      <root url="file://$MAVEN_REPOSITORY$/org" />
+    </ANNOTATIONS>
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/junit/junit/3.8.1/junit-3.8.1.jar!/" />
       <root url="file://$MAVEN_REPOSITORY$/junit/junit/4.12" />
+      <root url="file://$USER_HOME$/.m2" />
+      <root url="file://$MAVEN_REPOSITORY$/org" />
+      <root url="file://$MAVEN_REPOSITORY$/org" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$MAVEN_REPOSITORY$/junit/junit/3.8.1/junit-3.8.1-javadoc.jar!/" />
+      <root url="file://$MAVEN_REPOSITORY$/org" />
     </JAVADOC>
+    <NATIVE>
+      <root url="file://$MAVEN_REPOSITORY$/org" />
+    </NATIVE>
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/junit/junit/3.8.1/junit-3.8.1-sources.jar!/" />
+      <root url="file://$MAVEN_REPOSITORY$/org" />
+      <root url="file://$MAVEN_REPOSITORY$/org" />
     </SOURCES>
     <jarDirectory url="file://$MAVEN_REPOSITORY$/junit/junit/4.12" recursive="false" />
+    <jarDirectory url="file://$MAVEN_REPOSITORY$/org" recursive="false" />
+    <jarDirectory url="file://$MAVEN_REPOSITORY$/org" recursive="false" type="SOURCES" />
   </library>
 </component>

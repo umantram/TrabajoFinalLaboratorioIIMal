@@ -5,9 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by umantram on 27/11/16.
+ * Created by francomoglia on 11/28/16.
  */
-
 
 public class Usuario {
 

@@ -1,14 +1,18 @@
 package com.labii;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.Scanner;
+
 
 /**
- * Created by umantram on 27/11/16.
+ * Created by francomoglia on 11/28/16.
  */
-    @RestController
-    public class CalendarioControlador {
+
+@RestController
+public class CalendarioControlador {
 
     @RequestMapping(value = "/calendario", method = RequestMethod.GET)
     public Collection<Calendario> getCalendario(){
@@ -64,5 +68,4 @@ import java.util.Collection;
 
 
 }
-
 

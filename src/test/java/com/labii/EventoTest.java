@@ -1,11 +1,7 @@
 package com.labii;
 
 import junit.framework.TestCase;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by francomoglia on 12/3/16.
@@ -15,13 +11,12 @@ public class EventoTest extends TestCase {
     @Test
     public void testEvento() throws Exception{
 
-        Evento evento1 = new Evento(0,"Evento1", "lalala", "rojo",
-                new Fecha(3, 12, 2016, 1,56), new Fecha(4,12,2016,1,57), 1);
-        Evento evento2 = new Evento(1,"Evento2", "lalala", "azul",
-                new Fecha(3, 12, 2016, 1,56), new Fecha(5,12,2016,1,57),1);
-        Evento evento3 = new Evento(2,"Evento3", "lalala", "verde",
-                new Fecha(3, 12, 2016, 1,56), new Fecha(4,12,2017,1,57),1);
-
+        Evento evento1 = new Evento(0, "Evento1", "lalala", "rojo",
+                new Fecha(3, 12, 2016, 1,56), new Fecha(4,12,2016,1,57), 0 );
+        Evento evento2 = new Evento(1, "Evento2", "lalala", "azul",
+                new Fecha(3, 12, 2016, 1,56), new Fecha(5,12,2016,1,57), 0  );
+        Evento evento3 = new Evento(2, "Evento3", "lalala", "verde",
+                new Fecha(3, 12, 2016, 1,56), new Fecha(4,12,2017,1,57), 1 );
         /*
         *    TEST SOBRE METODO getIdEvento()
         * */

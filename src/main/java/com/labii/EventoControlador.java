@@ -6,8 +6,9 @@ import java.text.ParseException;
 import java.util.Collection;
 
 /**
- * Created by umantram on 28/11/16.
+ * Created by francomoglia on 12/2/16.
  */
+
 @RestController
 public class EventoControlador {
 
@@ -44,13 +45,13 @@ public class EventoControlador {
         //System.out.println("probando " + evento.getFechaInicio().getDia());
 
         EventoManejoDatos.altaEvento(evento.getNombre(), evento.getDescripcion(), evento.getColor(),
-                                evento.getFechaInicio().getDia(), evento.getFechaInicio().getMes(),
-                                evento.getFechaInicio().getAnio(), evento.getFechaInicio().getHora(),
-                                evento.getFechaInicio().getMinutos(),
-                                evento.getFechaFin() .getDia(), evento.getFechaFin().getMes(),
-                                evento.getFechaFin().getAnio(), evento.getFechaFin().getHora(),
-                                evento.getFechaFin().getMinutos(),
-                                evento.getIdCalendario());
+                evento.getFechaInicio().getDia(), evento.getFechaInicio().getMes(),
+                evento.getFechaInicio().getAnio(), evento.getFechaInicio().getHora(),
+                evento.getFechaInicio().getMinutos(),
+                evento.getFechaFin() .getDia(), evento.getFechaFin().getMes(),
+                evento.getFechaFin().getAnio(), evento.getFechaFin().getHora(),
+                evento.getFechaFin().getMinutos(),
+                evento.getIdCalendario());
 
     }
 
