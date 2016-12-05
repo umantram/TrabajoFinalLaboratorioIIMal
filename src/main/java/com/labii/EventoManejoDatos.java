@@ -1,7 +1,8 @@
 package com.labii;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -17,8 +18,9 @@ public class EventoManejoDatos {
 
         Evento evento1 = new Evento(contador.incrementAndGet(), "limpiar" , "Tengo que limpiar mi Pieza", "Rojo",
                          new Fecha(10,01,2016,20,30), new Fecha(10,01,2016,21,30),1);
-        //Evento evento2 = new Evento(contador.incrementAndGet(), "Estudiar",1, "Tengo que estudiar para Lab",
-        //                 new Fecha(15,01,2016,15,30), new Fecha(15,01,2016,16,30), "Verde");
+        //Evento evento2 = new Evento(contador.incrementAndGet(), "Estudiar", "Tengo que estudiar para Lab", "Verde",
+        //                 new Fecha(15,01,2016,15,30), new Fecha(15,01,2016,16,30), 1);
+
         //Evento evento3 = new Evento(contador.incrementAndGet(), "trabajar",2, "Tengo que terminar mi desarrollo de la Api",
         //                 new Fecha(9,1,2016,3,30), new Fecha(9,1,2016,4,30), "Azul");
 
@@ -37,7 +39,7 @@ public class EventoManejoDatos {
     }
 
     //Muestra todos los Eventos de un Calendario
-    public static Collection<Evento> listaEventosPorID(Integer idCalendario){
+    public static Collection<Evento> listaEventosPorIDCalendario(Integer idCalendario){
 
         HashMap<Integer, Evento> resul = new HashMap<Integer, Evento>();
 
@@ -51,23 +53,72 @@ public class EventoManejoDatos {
         return resul.values();
     }
 
-    //Muestra todos los Eventos de un Calendario
-    public static Collection<Evento> listaEventosPorFecha(Integer idCalendario, int dia, int mes, int anio){
-
-        LocalDate localDate = LocalDate.of(dia, mes, anio);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        System.out.println(formatter.format(today)); // 01/01/2016
+    //Muestra todos los Eventos de un Calendario por fecha
+    public static Collection<Evento> listaEventosPorFecha(String fechaBusqueda) throws ParseException {
 
         HashMap<Integer, Evento> resul = new HashMap<Integer, Evento>();
 
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+
+        Date dateClase;
+        String dateInStringClase;
+
+        try {
+
+            Date dateBusqueda = formatter.parse(fechaBusqueda);
+
         for (Evento list : listaEventos.values()){
 
-            if (list.getCalendario().getidCalendario() == idCalendario){
+            dateInStringClase = list.getFechaInicio().getDia() +"/"+ list.getFechaInicio().getMes() +"/"+ list.getFechaInicio().getAnio();
+            dateClase = formatter.parse(dateInStringClase);
+
+            if (dateBusqueda.equals(dateClase) ){
                 resul.put(list.getIdEvento(), list);
             }
+
+        }
+
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
 
         return resul.values();
+
+    }
+
+    //Muestra todos los Eventos de un Calendario por fecha
+    public static Collection<Evento> listaEventosPorFechaDesdeHasta(String fechaDesde, String fechaHasta) throws ParseException {
+
+        HashMap<Integer, Evento> resul = new HashMap<Integer, Evento>();
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+
+        Date dateClase;
+        String dateInStringClase;
+
+        try {
+
+            Date dateClaseDesde = formatter.parse(fechaDesde);
+            Date dateClaseHasta = formatter.parse(fechaHasta);
+
+            for (Evento list : listaEventos.values()){
+
+                dateInStringClase = list.getFechaInicio().getDia() +"/"+ list.getFechaInicio().getMes() +"/"+ list.getFechaInicio().getAnio();
+                dateClase = formatter.parse(dateInStringClase);
+
+                if (dateClaseDesde.before(dateClase) && dateClaseHasta.after(dateClase)){
+
+                    resul.put(list.getIdEvento(), list);
+                }
+
+            }
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return resul.values();
+
     }
 
     //  ALTA

@@ -41,6 +41,7 @@ Evento:
             http://localhost:8080/evento/1
     siendo 1 el id del evento
 
+
 2- Pasos a Seguir:
 
     Cargar un Nuevo Usuario
@@ -83,3 +84,9 @@ Evento:
 
     Consultar los Eventos de Un Calendario
             http://localhost:8080/calendario/1/evento
+
+    Consultar por fecha
+            http://localhost:8080/evento/listadoFecha?fecha=10/01/2016
+
+    Consultar por fecha desde y hasta
+            http://localhost:8080/evento/listadoFecha?fechadesde=01/01/2016&fechahasta=16/01/2016

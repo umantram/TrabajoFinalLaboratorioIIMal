@@ -16,18 +16,18 @@ import java.util.Collection;
 @RestController
 public class UsuarioControlador {
 
-    @RequestMapping(value = "/usuarios", method = RequestMethod.GET)
+    @RequestMapping(value = "/usuario", method = RequestMethod.GET)
     public Collection<Usuario> getUsuarios(){
         return UsuarioManejoDatos.getUsuarios();
     }
 
-    @RequestMapping(value = "/usuarios/{idUsuario}", method = RequestMethod.GET)
+    @RequestMapping(value = "/usuario/{idUsuario}", method = RequestMethod.GET)
     public Usuario getUsuarioPorID(@PathVariable("idUsuario") int idUsuario){
         return UsuarioManejoDatos.getUsuario(idUsuario);
     }
 
     //Alta Calendario con un Usuario
-    @RequestMapping(value = "/usuarios/{idUsuario}/altaCalendario", method = RequestMethod.POST)
+    @RequestMapping(value = "/usuario/{idUsuario}/altaCalendario", method = RequestMethod.POST)
     public void altaCalendarioUsaurio(@PathVariable("idUsuario") int idUsuario, @RequestBody Calendario calendario){
 
         CalendarioManejoDatos.altaCalendario(calendario.getNombre(), idUsuario);
@@ -35,7 +35,7 @@ public class UsuarioControlador {
     }
 
     //Alta Eventos de Calendario con un Usuario
-    @RequestMapping(value = "/usuarios/{idUsuario}/{idCalendario}/altaEvento", method = RequestMethod.POST)
+    @RequestMapping(value = "/usuario/{idUsuario}/{idCalendario}/altaEvento", method = RequestMethod.POST)
     public void altaEventoCalendarioUsuario(@PathVariable("idCalendario") int idCalendario, @RequestBody Evento evento,
                                             int dia, int mes, int anio, int hora, int minuto, String color){
 
@@ -44,7 +44,7 @@ public class UsuarioControlador {
     }
 
     //Alta
-    @RequestMapping(value = "/usuarios/alta", method = RequestMethod.POST)
+    @RequestMapping(value = "/usuario/alta", method = RequestMethod.POST)
     public void altaUsuario(@RequestBody Usuario input){
 
         UsuarioManejoDatos.altaUsuario(input.getNombre(), input.getEmail());
@@ -52,12 +52,12 @@ public class UsuarioControlador {
 
     }
 
-    @RequestMapping(value = "/usuarios/{idUsuario}/baja", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/usuario/{idUsuario}/baja", method = RequestMethod.DELETE)
     public void bajaUsuario(@PathVariable(value = "idUsuario") Integer idUsuario){
         UsuarioManejoDatos.bajaUsuario(idUsuario);
     }
 
-    @RequestMapping(value = "/usuarios/{idUsuario}/modificar", method = RequestMethod.PUT)
+    @RequestMapping(value = "/usuario/{idUsuario}/modificar", method = RequestMethod.PUT)
     public void modifUsuario(@PathVariable(value = "idUsuario") Integer idUsuario, @RequestBody Usuario usuario){
         UsuarioManejoDatos.modifUsuario(idUsuario, usuario.getEmail());
     }

@@ -23,7 +23,7 @@ import java.util.Collection;
     //########Muestra todos los Eventos de un Calendario
     @RequestMapping(value = "/calendario/{idCalendario}/evento", method = RequestMethod.GET)
     public Collection<Evento> getEventosPorIDCalendario(@PathVariable("idCalendario") Integer idCalendario){
-        return EventoManejoDatos.listaEventosPorID(idCalendario) ;
+        return EventoManejoDatos.listaEventosPorIDCalendario(idCalendario) ;
     }
 
     //Alta

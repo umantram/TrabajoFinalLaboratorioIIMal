@@ -2,6 +2,7 @@ package com.labii;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.Collection;
 
 /**
@@ -15,10 +16,26 @@ public class EventoControlador {
         return EventoManejoDatos.getListaEventos();
     }
 
+    //Lsiatdo de Eventos por Fecha
+    @RequestMapping(value = "/evento/listadoFecha", method = RequestMethod.GET, params={"fecha"})
+    public Collection<Evento> getEventoFecha(@RequestParam("fecha") String fecha ) throws ParseException {
+
+        return EventoManejoDatos.listaEventosPorFecha(fecha);
+    }
+
+    //Listado de Eventos por Fecha Desde Hasta
+    @RequestMapping(value = "/evento/listadoFecha", method = RequestMethod.GET, params={"fechadesde", "fechahasta"})
+    public Collection<Evento> getEventoFechaDesdeHasta(@RequestParam("fechadesde") String fechaDesde,
+                                                       @RequestParam("fechahasta") String fechaHasta ) throws ParseException {
+
+        return EventoManejoDatos.listaEventosPorFechaDesdeHasta(fechaDesde, fechaHasta);
+    }
+
     @RequestMapping(value = "/evento/{idEvento}", method = RequestMethod.GET)
     public Evento getEventoPorID(@PathVariable("idEvento") Integer idEvento){
         return EventoManejoDatos.getEventos(idEvento) ;
     }
+
 
     //Alta
     @RequestMapping(value = "/evento/alta", method = RequestMethod.POST)
